@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.spring_security_service_01.model.UserRepository;
 import com.example.spring_security_service_01.role.RoleRepository;
 import com.example.spring_security_service_01.security.JwtService;
+import com.example.spring_security_service_01.token.TokenRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +21,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final RoleRepository roleRepository;
     private final EmailService emailService;
-    private final ToeknRepository tokenRepository;
+    private final TokenRepository tokenRepository;
     
     
 }

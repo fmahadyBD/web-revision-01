@@ -1,8 +1,6 @@
-package com.example.spring_security_service_01.token;
+package com.example.spring_security_service_01.user;
 
 import java.time.LocalDateTime;
-
-import com.example.spring_security_service_01.model.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;

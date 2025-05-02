@@ -1,4 +1,4 @@
-package com.example.spring_security_service_01.model;
+package com.example.spring_security_service_01.user;
 
 import java.util.Optional;
 

@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
 
 import com.example.spring_security_service_01.email.EmailService;
 import com.example.spring_security_service_01.email.EmailTemplateName;
-import com.example.spring_security_service_01.model.User;
-import com.example.spring_security_service_01.model.UserRepository;
-import com.example.spring_security_service_01.role.RoleRepository;
 import com.example.spring_security_service_01.security.JwtService;
-import com.example.spring_security_service_01.token.Token;
-import com.example.spring_security_service_01.token.TokenRepository;
+import com.example.spring_security_service_01.user.RoleRepository;
+import com.example.spring_security_service_01.user.Token;
+import com.example.spring_security_service_01.user.TokenRepository;
+import com.example.spring_security_service_01.user.User;
+import com.example.spring_security_service_01.user.UserRepository;
 
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;

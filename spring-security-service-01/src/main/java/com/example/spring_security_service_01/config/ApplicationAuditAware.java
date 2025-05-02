@@ -7,7 +7,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.example.spring_security_service_01.model.User;
+import com.example.spring_security_service_01.user.User;
 
 
 /*

@@ -1,4 +1,4 @@
-package com.example.spring_security_service_01.model;
+package com.example.spring_security_service_01.user;
 
 import java.security.Principal;
 import java.time.LocalDateTime;
@@ -12,8 +12,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import com.example.spring_security_service_01.role.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

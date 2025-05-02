@@ -18,7 +18,6 @@ import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class JwtService {
 
     @Value("${application.security.jwt.secret-key}")
@@ -37,6 +36,7 @@ public class JwtService {
                 .parserBuilder()
                 .setSigningKey(getSignInKey())
                 .build()
+
                 .parseClaimsJws(token)
                 .getBody();
 
@@ -44,8 +44,9 @@ public class JwtService {
 
     private Key getSignInKey() {
 
-        byte[] keyByte = Decoders.BASE64.decode(secretKey);
-        return Keys.hmacShaKeyFor(keyByte);
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+
+        return Keys.hmacShaKeyFor(keyBytes);
 
     }
 
@@ -71,6 +72,7 @@ public class JwtService {
         return Jwts.builder()
                 .setClaims(extractClaim)
                 .setSubject(userDetails.getUsername())
+                .claim("authorities", authorities)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration2))
                 .signWith(getSignInKey())

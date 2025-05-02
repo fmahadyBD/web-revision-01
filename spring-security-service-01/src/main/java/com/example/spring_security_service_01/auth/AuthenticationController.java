@@ -1,8 +1,13 @@
 package com.example.spring_security_service_01.auth;
 
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -21,8 +26,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(
-        @RequestBody @Valid RegisterRequest request
-    ) throws MessagingException{
+            @RequestBody @Valid RegisterRequest request) throws MessagingException {
 
         authService.registration(request);
         return ResponseEntity.accepted().build();
@@ -31,11 +35,27 @@ public class AuthenticationController {
 
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(
-    @RequestBody AuthenticationRequest request
-    ){
-
-        return ResponseEntity.ok(authService.authenticate(request));
+    public ResponseEntity<?> authenticate(
+            @RequestBody AuthenticationRequest request) {
+        try {
+            var response = authService.authenticate(request);
+            return ResponseEntity.ok(response);
+        } catch (BadCredentialsException e) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(Map.of("error", "Invalid email or password"));
+        } catch (Exception e) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(Map.of("error", "Something went wrong"));
+        }
     }
     
+
+    @GetMapping("/activate-account")
+    public void confirm(
+            @RequestParam String token) throws MessagingException {
+        authService.activateAccount(token);
+    }
+
 }

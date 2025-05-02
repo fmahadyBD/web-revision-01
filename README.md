@@ -1,5 +1,12 @@
 # This is a practice project for my revision
 
+### Install fontAwasme and Bootstrap:
+- Angular:
+- install bootstrap
+- instal fontawsame
+- npm install @fortawesome/fontawesome-free
+
+
 ### How find the openAPi Swagger:
 Goto the browser: http://localhost:8088/api/v1/swagger-ui/index.html
 
@@ -17,11 +24,12 @@ Goto the browser: http://localhost:8088/api/v1/swagger-ui/index.html
  - now give this command: npm run api-gen
 
 
- ## You need to create tokenService manually
+ ### You need to create tokenService manually
 
- ## You need to install JWT helper library
+ ### You need to install JWT helper library
 
  - npm install @auth0/angular-jwt
 
-
+### Now insatll code input from:
+- Install npm i angular-code-input
 

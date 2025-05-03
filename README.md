@@ -1,4 +1,4 @@
-# This is a practice project for my revision
+# This is a full stack security practice project for my revision
 
 ### Install fontAwasme and Bootstrap:
 - Angular:
